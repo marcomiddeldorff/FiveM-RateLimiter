@@ -1,3 +1,4 @@
 src/obj/
 .vs
-oaky_ratelimitr
+oaky_ratelimiter
+oaky_ratelimiter*

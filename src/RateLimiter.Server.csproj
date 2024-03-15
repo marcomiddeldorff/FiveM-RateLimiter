@@ -1,4 +1,4 @@
-﻿<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
     <PropertyGroup>
 	  <LangVersion>latest</LangVersion>
       <TargetFramework>netstandard2.0</TargetFramework>
@@ -8,7 +8,7 @@
 		<BaseOutputPath></BaseOutputPath>
 		<OutDir>..\oaky_ratelimiter\Server\</OutDir>
 		<AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
-		<CopyLocalLockFileAssemblies>false</CopyLocalLockFileAssemblies>
+		<CopyLocalLockFileAssemblies>true</CopyLocalLockFileAssemblies>
 		<Nullable>enable</Nullable>
 		<GenerateDocumentationFile>True</GenerateDocumentationFile>
     </PropertyGroup>
@@ -17,9 +17,12 @@
       <PackageReference Include="CitizenFX.Core.Server" Version="1.0.*" />
       <PackageReference Include="Microsoft.CSharp" Version="4.7.0" />
     </ItemGroup>
-  
+   
     <Target Name="PostBuild" AfterTargets="PostBuildEvent">
-      <Exec Command="xcopy /y $(ProjectDir)fxmanifest.lua $(ProjectDir)$(OutDir)..\" />
+        <Exec Command="xcopy /y $(ProjectDir)fxmanifest.lua $(ProjectDir)$(OutDir)..\" />
+		<ZipDirectory SourceDirectory="$(ProjectDir)$(OutDir)..\" 
+					  DestinationFile="$(ProjectDir)$(OutDir)..\..\oaky_ratelimiter.zip" 
+					  Overwrite="true">
+		</ZipDirectory>
     </Target>
 </Project>
-  
