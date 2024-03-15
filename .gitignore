@@ -1,4 +1,3 @@
-Client/obj/
-Server/obj/
-.vs/
-dist
+src/obj/
+.vs
+oaky_ratelimitr

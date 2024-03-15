@@ -6,8 +6,9 @@
       <TargetName>$(AssemblyName).net</TargetName>
       <DefineConstants>SERVER</DefineConstants>
 		<BaseOutputPath></BaseOutputPath>
-		<OutDir>..\dist\Server\</OutDir>
+		<OutDir>..\oaky_ratelimiter\Server\</OutDir>
 		<AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
+		<CopyLocalLockFileAssemblies>false</CopyLocalLockFileAssemblies>
 		<Nullable>enable</Nullable>
 		<GenerateDocumentationFile>True</GenerateDocumentationFile>
     </PropertyGroup>
@@ -16,5 +17,9 @@
       <PackageReference Include="CitizenFX.Core.Server" Version="1.0.*" />
       <PackageReference Include="Microsoft.CSharp" Version="4.7.0" />
     </ItemGroup>
+  
+    <Target Name="PostBuild" AfterTargets="PostBuildEvent">
+      <Exec Command="xcopy /y $(ProjectDir)fxmanifest.lua $(ProjectDir)$(OutDir)..\" />
+    </Target>
 </Project>
   

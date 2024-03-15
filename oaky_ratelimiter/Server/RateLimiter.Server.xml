@@ -1,0 +1,31 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>RateLimiter.Server.net</name>
+    </assembly>
+    <members>
+        <member name="F:RateLimiter.Server.ServerMain.RegisteredRateLimiters">
+            <summary>
+            All registered rate limiter.
+            </summary>
+        </member>
+        <member name="T:RateLimiter.Server.ServerMain.IsPlayerInTimeoutDelegate">
+            Example:
+            ["Test"] = {"PLAYER_IDENTIFIER" = { "CurrentAttempts" = 1, "LatestAttemptAt" = 0 }}
+        </member>
+        <member name="M:RateLimiter.Server.ServerMain.RegisterRateLimiter(CitizenFX.Core.Player,System.String,System.Int32)">
+            <summary>
+            Registers a new rate limiter.
+            </summary>
+            <param name="Name">A unique name for the rate limiter.</param>
+            <param name="AttemptsPerMinute">The attempts a user can make per minute.</param>
+        </member>
+        <member name="M:RateLimiter.Server.ServerMain.GetPlayerLicenseIdentifier(System.String)">
+            <summary>
+            Internal function to return the player identifier.
+            </summary>
+            <param name="Player">The player source.</param>
+            <returns>The players license identifier without the "license:" prefix.</returns>
+        </member>
+    </members>
+</doc>
