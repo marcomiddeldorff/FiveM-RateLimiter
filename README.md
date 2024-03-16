@@ -1,6 +1,6 @@
-# RateLimiter
+# Rate Limiter
 
-This script adds a rate limiting functionality to your FiveM server. With this script you'll be able to track too many requests to your server and put your players into a timeout if they exceed a configurable amount of requests per minute.
+This script adds a rate limiting functionality to your FiveM server. With this script, you'll be able to track if any of your players made too many requests to your server and put your players into a timeout if they exceed a configurable amount of requests per minute.
 
 > ⚠️ **_NOTE:_** You will need some experience in FiveM development in order to use this script. I am happy to help you with implementing this script into your scripts but please make sure you have somewhat at least a small amount of knowledge.
 
@@ -35,9 +35,9 @@ Exports["oaky_ratelimiter"].HitRateLimiter(identifier, rateLimiterName)
 
 ### Check if an player is in timeout
 
-The return value of this export will only be True if an player has exceeded (MaxAttempts <= CurrentAttempts) the max allowed attempts which you specified in the `RegisterRateLimiter` export.
+The return value of this export will only be True if a player has exceeded (MaxAttempts <= CurrentAttempts) the max allowed attempts which you specified in the `RegisterRateLimiter` export.
 
-> ⚠️ **_NOTE_**: If you dont want to specify the name of a rate limiter please only provide the first argument. Don't provide null or anything else as the second argument.
+> ⚠️ **_NOTE_**: If you don't want to specify the name of a rate limiter please only provide the first argument. Don't provide null or anything else as the second argument.
 
 ```lua
 local isInTimeout = exports["oaky_ratelimiter"]:IsPlayerInTimeout(identifier, rateLimiterName)
