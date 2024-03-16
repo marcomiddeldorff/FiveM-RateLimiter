@@ -91,6 +91,19 @@ namespace RateLimiter.Server
             RateLimiter.Attempts[Identifier] = Attempt;
         }
 
+        public bool IsPlayerInTimeout(string Identifier, string Name)
+        {
+            if (!RegisteredRateLimiters.ContainsKey(Name))
+            {
+                Debug.WriteLine($"[^1ERROR^0] The rate limiter name \"{Name}\" is not a valid rate limiter name.");
+                return false;
+            }
+
+            var RateLimiter = RegisteredRateLimiters[Name];
+
+            return RateLimiter.Attempts[Identifier].CurrentAttempts < RateLimiter.AttemptsPerMinute;
+        }
+
         public bool IsPlayerInTimeout(string Identifier)
         {
             // Loop through all registered rate limiters.
